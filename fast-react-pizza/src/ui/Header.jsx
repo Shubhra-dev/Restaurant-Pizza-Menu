@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <header>
+    <header className="bg-yellow-500">
       <Link to="/">Fast React Pizza</Link>
       <p>Shuvro</p>
     </header>
