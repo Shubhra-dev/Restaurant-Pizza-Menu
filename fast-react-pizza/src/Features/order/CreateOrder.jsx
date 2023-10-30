@@ -42,30 +42,39 @@ function CreateOrder() {
 
   return (
     <div className="px-4 py-6">
-      <h2>Ready to order? Let's go!</h2>
+      <h2 className="mb-8 text-xl font-semibold">Ready to order? Let's go!</h2>
 
       <Form method="POST">
-        <div>
-          <label>First Name</label>
-          <input type="text" name="customer" required className="input" />
+        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+          <label className="sm:basis-40">First Name</label>
+          <input type="text" name="customer" required className="input grow" />
         </div>
 
-        <div>
-          <label>Phone number</label>
-          <div>
-            <input type="tel" name="phone" required className="input" />
-          </div>
-          {formError?.phone && <p>{formError.phone}</p>}
-        </div>
-
-        <div>
-          <label>Address</label>
-          <div>
-            <input type="text" name="address" required className="input" />
+        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+          <label className="sm:basis-40">Phone number</label>
+          <div className="grow">
+            <input type="tel" name="phone" required className="input w-full" />
+            {formError?.phone && (
+              <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
+                {formError.phone}
+              </p>
+            )}
           </div>
         </div>
 
-        <div>
+        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+          <label className="sm:basis-40">Address</label>
+          <div className="grow">
+            <input
+              type="text"
+              name="address"
+              required
+              className="input w-full"
+            />
+          </div>
+        </div>
+
+        <div className="mb-12 flex items-center gap-2">
           <input
             type="checkbox"
             name="priority"
@@ -74,7 +83,9 @@ function CreateOrder() {
             // onChange={(e) => setWithPriority(e.target.checked)}
             className="h-4 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2"
           />
-          <label htmlFor="priority">Want to yo give your order priority?</label>
+          <label className="font-medium" htmlFor="priority">
+            Want to yo give your order priority?
+          </label>
         </div>
 
         <div>
