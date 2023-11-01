@@ -9,7 +9,7 @@ const styles = {
   secondary:
     'px-4 text-sm py-2.5 md:px-6 md:py-3.5 inline-block rounded-full font-semibold uppercase tracking-wide text-stone-400 transition-colors duration-200 hover:bg-stone-200 border-2 border-stone-300 hover:text-stone-800 focus:bg-stone-300 focus:text-stone-800  focus:outline-none focus:ring focus:ring-stone-300 focus:ring-opacity-40 disabled:cursor-not-allowed focus:ring-offset-2',
 };
-function Button({ children, to, disabled, type, onClick }) {
+function Button({ children, to, disabled, type, onclick }) {
   if (to) {
     return (
       <Link className={styles[type]} to={to}>
@@ -17,10 +17,12 @@ function Button({ children, to, disabled, type, onClick }) {
       </Link>
     );
   }
-  if (onClick) {
-    <button disabled={disabled} className={styles[type]} onClick={onClick}>
-      {children}
-    </button>;
+  if (onclick) {
+    return (
+      <button disabled={disabled} className={styles[type]} onClick={onclick}>
+        {children}
+      </button>
+    );
   }
   return (
     <button disabled={disabled} className={styles[type]}>
